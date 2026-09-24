@@ -1,0 +1,9 @@
+name,smiles_reagent,mw_reagent,pKa_reagent,solubility_h2o,solubility_methanol,solubility_ethanol
+NaOH,[OH-].[Na+],40.0,13.9,100.0,23.8,13.9
+NaHCO3,C(=O)(O)[O-].[Na+],84.01,6.34,9.6,0.2,0.0
+CsF,[F-].[Cs+],151.9,3.17,57.3,19.1,0.0
+K3PO4,[O-]P(=O)([O-])[O-].[K+].[K+].[K+],212.26,12.4,90.0,0.0,0.0
+KOH,[OH-].[K+],56.1,14.7,85.0,55.0,38.7
+LiOtBu,[Li+].CC(C)(C)[O-],80.06,18.0,0.0,0.0,0.0
+Et3N,CCN(CC)CC,101.19,10.75,11.24,50.0,50.0
+No_Reagent,0.0,0.0,0,0,0,0

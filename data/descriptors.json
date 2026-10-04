@@ -1,0 +1,186 @@
+{
+  "solvent": {
+    "MeCN": {
+      "smiles_solvent": "CC#N",
+      "polarity_solvent": 0.46,
+      "dielectric_solvent": 37.5,
+      "bp_solvent": 354.15,
+      "viscosity_solvent": 0.35
+    },
+    "THF": {
+      "smiles_solvent": "C1CCOC1",
+      "polarity_solvent": 0.207,
+      "dielectric_solvent": 7.58,
+      "bp_solvent": 339.15,
+      "viscosity_solvent": 0.48
+    },
+    "DMF": {
+      "smiles_solvent": "CN(C)C=O",
+      "polarity_solvent": 0.386,
+      "dielectric_solvent": 36.7,
+      "bp_solvent": 426.0,
+      "viscosity_solvent": 0.92
+    },
+    "MeOH": {
+      "smiles_solvent": "CO",
+      "polarity_solvent": 0.762,
+      "dielectric_solvent": 32.7,
+      "bp_solvent": 337.8,
+      "viscosity_solvent": 0.545
+    },
+    "MeOH/H2O_V2 9:1": {
+      "smiles_solvent": "CO",
+      "polarity_solvent": 0.762,
+      "dielectric_solvent": 32.7,
+      "bp_solvent": 337.8,
+      "viscosity_solvent": 0.545
+    },
+    "THF_V2": {
+      "smiles_solvent": "C1CCOC1",
+      "polarity_solvent": 0.207,
+      "dielectric_solvent": 7.58,
+      "bp_solvent": 339.15,
+      "viscosity_solvent": 0.48
+    }
+  },
+  "reagent": {
+    "NaOH": {
+      "smiles_reagent": "[OH-].[Na+]",
+      "mw_reagent": 40.0,
+      "pKa_reagent": 13.9,
+      "solubility_h2o": 100.0,
+      "solubility_methanol": 23.8,
+      "solubility_ethanol": 13.9
+    },
+    "NaHCO3": {
+      "smiles_reagent": "C(=O)(O)[O-].[Na+]",
+      "mw_reagent": 84.01,
+      "pKa_reagent": 6.34,
+      "solubility_h2o": 9.6,
+      "solubility_methanol": 0.2,
+      "solubility_ethanol": 0.0
+    },
+    "CsF": {
+      "smiles_reagent": "[F-].[Cs+]",
+      "mw_reagent": 151.9,
+      "pKa_reagent": 3.17,
+      "solubility_h2o": 57.3,
+      "solubility_methanol": 19.1,
+      "solubility_ethanol": 0.0
+    },
+    "K3PO4": {
+      "smiles_reagent": "[O-]P(=O)([O-])[O-].[K+].[K+].[K+]",
+      "mw_reagent": 212.26,
+      "pKa_reagent": 12.4,
+      "solubility_h2o": 90.0,
+      "solubility_methanol": 0.0,
+      "solubility_ethanol": 0.0
+    },
+    "KOH": {
+      "smiles_reagent": "[OH-].[K+]",
+      "mw_reagent": 56.1,
+      "pKa_reagent": 14.7,
+      "solubility_h2o": 85.0,
+      "solubility_methanol": 55.0,
+      "solubility_ethanol": 38.7
+    },
+    "LiOtBu": {
+      "smiles_reagent": "[Li+].CC(C)(C)[O-]",
+      "mw_reagent": 80.06,
+      "pKa_reagent": 18.0,
+      "solubility_h2o": 0.0,
+      "solubility_methanol": 0.0,
+      "solubility_ethanol": 0.0
+    },
+    "Et3N": {
+      "smiles_reagent": "CCN(CC)CC",
+      "mw_reagent": 101.19,
+      "pKa_reagent": 10.75,
+      "solubility_h2o": 11.24,
+      "solubility_methanol": 50.0,
+      "solubility_ethanol": 50.0
+    },
+    "No_Reagent": {
+      "smiles_reagent": "0.0",
+      "mw_reagent": 0.0,
+      "pKa_reagent": 0.0,
+      "solubility_h2o": 0.0,
+      "solubility_methanol": 0.0,
+      "solubility_ethanol": 0.0
+    }
+  },
+  "ligand": {
+    "P(tBu)3": {
+      "smiles_ligand": "CC(C)(C)P(C(C)(C)C)C(C)(C)C",
+      "mw_ligand": 202.32,
+      "logP_ligand": 4.86,
+      "rotatable_bonds": 0
+    },
+    "P(Ph)3": {
+      "smiles_ligand": "C1=CC=C(C=C1)P(C2=CC=CC=C2)C3=CC=CC=C3",
+      "mw_ligand": 262.29,
+      "logP_ligand": 3.44,
+      "rotatable_bonds": 3
+    },
+    "AmPhos": {
+      "smiles_ligand": "CC(C)(C)P(C1=CC=C(C=C1)N(C)C)C(C)(C)C",
+      "mw_ligand": 265.38,
+      "logP_ligand": 4.46,
+      "rotatable_bonds": 2
+    },
+    "P(Cy)3": {
+      "smiles_ligand": "C1CCC(CC1)P(C2CCCCC2)C3CCCCC3",
+      "mw_ligand": 280.44,
+      "logP_ligand": 6.47,
+      "rotatable_bonds": 3
+    },
+    "P(o-Tol)3": {
+      "smiles_ligand": "CC1=CC=CC=C1P(C2=CC=CC=C2C)C3=CC=CC=C3C",
+      "mw_ligand": 304.37,
+      "logP_ligand": 4.37,
+      "rotatable_bonds": 3
+    },
+    "CataCXium A": {
+      "smiles_ligand": "CCCCP(C12CC3CC(C1)CC(C3)C2)C45CC6CC(C4)CC(C6)C5",
+      "mw_ligand": 358.55,
+      "logP_ligand": 7.21,
+      "rotatable_bonds": 5
+    },
+    "SPhos": {
+      "smiles_ligand": "COC1=C(C(=CC=C1)OC)C2=CC=CC=C2P(C3CCCCC3)C4CCCCC4",
+      "mw_ligand": 410.54,
+      "logP_ligand": 7.14,
+      "rotatable_bonds": 6
+    },
+    "dtbpf": {
+      "smiles_ligand": "[Fe].CC(C)(C)P([C]1[CH][CH][CH][CH]1)C(C)(C)C.CC(C)(C)P([C]2[CH][CH][CH][CH]2)C(C)(C)C",
+      "mw_ligand": 474.43,
+      "logP_ligand": 8.85,
+      "rotatable_bonds": 2
+    },
+    "XPhos": {
+      "smiles_ligand": "CC(C)C1=CC(=C(C(=C1)C(C)C)C2=CC=CC=C2P(C3CCCCC3)C4CCCCC4)C(C)C",
+      "mw_ligand": 476.73,
+      "logP_ligand": 10.5,
+      "rotatable_bonds": 7
+    },
+    "dppf": {
+      "smiles_ligand": "[CH-]1C=CC(=C1)P(C2=CC=CC=C2)C3=CC=CC=C3.[CH-]1C=CC(=C1)P(C2=CC=CC=C2)C3=CC=CC=C3.[Fe+2]",
+      "mw_ligand": 554.39,
+      "logP_ligand": 6.32,
+      "rotatable_bonds": 6
+    },
+    "Xantphos": {
+      "smiles_ligand": "CC1(C2=C(C(=CC=C2)P(C3=CC=CC=C3)C4=CC=CC=C4)OC5=C1C=CC=C5P(C6=CC=CC=C6)C7=CC=CC=C7)C",
+      "mw_ligand": 578.63,
+      "logP_ligand": 7.63,
+      "rotatable_bonds": 6
+    },
+    "No_Ligand": {
+      "smiles_ligand": "0",
+      "mw_ligand": 0.0,
+      "logP_ligand": 0.0,
+      "rotatable_bonds": 0
+    }
+  }
+}

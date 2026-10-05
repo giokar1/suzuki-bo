@@ -1,7 +1,0 @@
-name,smiles_solvent,polarity_solvent,dielectric_solvent,bp_solvent,viscosity_solvent
-MeCN,CC#N,0.46,37.5,354.15,0.35
-THF,C1CCOC1,0.207,7.58,339.15,0.48
-DMF,CN(C)C=O,0.386,36.7,426.0,0.92
-MeOH,CO,0.762,32.7,337.8,0.545
-MeOH/H2O_V2 9:1,CO,0.762,32.7,337.8,0.545
-THF_V2,C1CCOC1,0.207,7.58,339.15,0.48

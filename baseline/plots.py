@@ -19,13 +19,13 @@ def _to_rgba(hex_color: str, alpha: float) -> str:
     return f'rgba({r},{g},{b},{alpha})'
 
 
-def plot_trajectory_plotly(res: pd.DataFrame, r1: str, r2: str, n_init: int=10, methods: list=None, budget: int=None) -> go.Figure:
+def plot_trajectory_plotly(res: pd.DataFrame, r1: str, r2: str, n_init: int=10, methods: list=None, budget: int=None, display_bands: bool=False) -> go.Figure:
     """
     Interactive best-yield-so-far curves for one reactant pair.
     res: long benchmark table (method, r1, r2, iter, seed, best, max_start, max_yield),
          i.e. the outputs of benchmark() and benchmark_rs() stacked with pd.concat.
     methods: method names as stored in res (e.g. ['rs', 'onehot']); None shows all.
-    budget: optional total number of experiments to mark with a vertical line.
+    budget: optional total number of experiments (start set included); the plot stops there.
     Line = median over seeds, band = 25th to 75th percentile over seeds.
     The x-axis counts all experiments, so the first point is the start set (n_init).
     """
@@ -41,6 +41,9 @@ def plot_trajectory_plotly(res: pd.DataFrame, r1: str, r2: str, n_init: int=10, 
     start['best'] = start['max_start']
     curves = pd.concat([start, pair], ignore_index=True)
     curves['experiments'] = curves['iter'] + n_init
+    if budget is not None:
+        #keep only the experiments within the budget, so both axes are scaled to what is shown
+        curves = curves[curves['experiments']<=max(budget, n_init)]
     curves['label'] = curves['method'].map(METHOD_LABELS).fillna(curves['method'])
 
     stats = (curves.groupby(['label', 'experiments'])['best']
@@ -55,13 +58,15 @@ def plot_trajectory_plotly(res: pd.DataFrame, r1: str, r2: str, n_init: int=10, 
     lines.update_traces(selector=dict(name='Random search'), line_dash='dash')
 
     #bands go in first so they sit behind the lines; same legendgroup = they hide together with their line
+    
     bands = []
     for trace in lines.data:
         method_stats = stats[stats['label']==trace.name]
-        hidden = dict(mode='lines', line_width=0, legendgroup=trace.legendgroup, showlegend=False, hoverinfo='skip')
-        bands.append(go.Scatter(x=method_stats['experiments'], y=method_stats['q75'], **hidden))
-        bands.append(go.Scatter(x=method_stats['experiments'], y=method_stats['q25'], fill='tonexty',
-                                fillcolor=_to_rgba(trace.line.color, 0.15), **hidden))
+        if display_bands:
+            hidden = dict(mode='lines', line_width=0, legendgroup=trace.legendgroup, showlegend=False, hoverinfo='skip')
+            bands.append(go.Scatter(x=method_stats['experiments'], y=method_stats['q75'], **hidden))
+            bands.append(go.Scatter(x=method_stats['experiments'], y=method_stats['q25'], fill='tonexty',
+                                    fillcolor=_to_rgba(trace.line.color, 0.15), **hidden))
     fig = go.Figure(data=bands + list(lines.data), layout=lines.layout)
 
     pair_best = pair['max_yield'].iloc[0]
@@ -70,12 +75,10 @@ def plot_trajectory_plotly(res: pd.DataFrame, r1: str, r2: str, n_init: int=10, 
     #headroom above the best yield so the annotation does not sit on the curves
     low = stats['q25'].min()
     fig.update_yaxes(range=[low - 0.03*(pair_best - low), pair_best + 0.12*(pair_best - low)])
-    if budget is not None:
-        fig.add_vline(x=budget, line_dash='dot', line_width=1, line_color='#8a8984')
 
-    fig.update_layout(title=f'{r1} + {r2}', hovermode='x unified', legend_title_text='', template='plotly_white',
+    fig.update_layout(title={'text':f'{r1} + {r2}', 'xanchor':'left', 'x':0}, height=800, hovermode='x unified', legend_title_text='', template='plotly_white',
                       xaxis_title='Experiments run (first point = start set)', yaxis_title='Best yield found (%)',
-                      legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='left', x=0),
+                      legend=dict(orientation='h', yanchor='top', y=-0.10, xanchor='left', x=0),
                       margin=dict(l=10, r=10, t=90, b=10))
     fig.update_xaxes(dtick=5)
     return fig

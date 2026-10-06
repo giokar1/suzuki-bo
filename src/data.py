@@ -45,3 +45,7 @@ def list_pairs(df: pd.DataFrame) -> tuple:
     rct_2 = [name for name in df['reactant2'].unique()]
     return (rct_1, rct_2)
 
+
+@st.cache_data
+def load_results(path: str) -> pd.DataFrame:
+    return pd.read_csv(path, sep=";", index_col="Unnamed: 0")

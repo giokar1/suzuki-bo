@@ -1,4 +1,4 @@
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://suzuki-bo.streamlit.app)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://suzuki-bo-hbr3gnecxkrayfs7vvsjt2.streamlit.app/)
 
 # Reaction conditions optimiser
 
